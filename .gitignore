@@ -1,4 +1,5 @@
 # 🚀 Astro.js .gitignore
+.astro 
 
 # Node.js
 node_modules/
