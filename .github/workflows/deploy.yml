@@ -1,0 +1,38 @@
+
+workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: ⚡ Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: 📦 Instalar dependencias
+        run: npm install
+
+      - name: 🔨 Construir el proyecto
+        run: npm run build
+
+      - name: 🚀 Configurar GitHub Pages
+        uses: actions/configure-pages@v3
+
+      - name: 📂 Subir archivos a GitHub Pages
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: dist
+
+      - name: 🚀 Desplegar en GitHub Pages
+        uses: actions/deploy-pages@v2

@@ -30,6 +30,3 @@ dist/          # ⚠️ Astro genera 'dist/' en cada build, no lo subas
 # GitHub & OS Files
 .DS_Store      # macOS metadata
 Thumbs.db      # Windows metadata
-
-# Astro Deploy (Si usas GitHub Pages con Actions, ignora estas)
-.github/
