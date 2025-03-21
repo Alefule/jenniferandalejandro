@@ -1,24 +1,34 @@
-# build output
-dist/
+# 🚀 Astro.js .gitignore
 
-# generated types
-.astro/
-
-# dependencies
+# Node.js
 node_modules/
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
 
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+# Directorios de compilación y caché
+dist/          # ⚠️ Astro genera 'dist/' en cada build, no lo subas
+.out/          # Caché de Astro
+.cache/        # Caché de compilaciones
+.vite/         # Caché de Vite
+*.log          # Archivos de log (npm-debug.log, etc.)
 
-# environment variables
+# Archivos de configuración del entorno
 .env
-.env.production
+.env.local
+.env.*.local   # Evita subir variables de entorno privadas
 
-# macOS-specific files
-.DS_Store
-
-# jetbrains setting folder
+# Archivos del editor
+.vscode/
 .idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# GitHub & OS Files
+.DS_Store      # macOS metadata
+Thumbs.db      # Windows metadata
+
+# Astro Deploy (Si usas GitHub Pages con Actions, ignora estas)
+.github/
