@@ -1,8 +1,21 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import cardImage from '@/assets/jenniandale.webp';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Jennifer & Alejandro | Home">
+
+    <section class="relative h-screen">
+        <div class="absolute inset-0">
+            <img src={cardImage.src} alt="Wedding Background" class="w-full h-full object-cover filter">
+        </div>
+        <div class="relative flex items-center justify-center h-full text-center text-white bg-gradient-to-b from-white/30 to-white/30 px-4">
+            <div>
+                <h1 class="font-['Cormorant_Garamond'] text-6xl md:text-8xl font-light mb-4 bg-[#13151a59] golden">Jennifer & Alejandro</h1>
+                <p class="text-xl md:text-4xl font-light tracking-wider mb-6 bg-[#13151a59] golden">¡Nos casamos!</p>
+                <p class="text-lg md:text-3xl font-light bg-[#13151a59]">06 De Septiembre, 2025</p>
+                <p class="text-lg md:text-xl font-light bg-[#13151a59] golden">Las Rosas, Galdar. Las Palmas de Gran Canaria.</p>
+            </div>
+        </div>
+    </section>
 </Layout>

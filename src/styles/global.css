@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+.golden {
+  border-bottom: 2px solid rgb(212, 183, 143);
+  padding-bottom: 0.25rem;
+}
