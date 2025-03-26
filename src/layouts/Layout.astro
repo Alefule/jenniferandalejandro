@@ -5,6 +5,7 @@ import { siteInfo } from '@/consts/site-info';
 import NavBar from '@/components/shared/NavBar.astro';
 import Footer from '@/components/shared/Footer.astro';
 import ico from '@/assets/favicon.ico';
+import cardImage from '@/assets/jenniandale.webp';
 
 
 
@@ -32,7 +33,7 @@ const {title = siteInfo.title, description= siteInfo.description, image} = Astro
      <!-- OG Metatags -->
      <meta name="og:title" content={title}/>
      <meta name="og:description" content={description}/>
-     <meta name="og:image" content={image}/>
+     <meta name="og:image" content={cardImage.src}/>
 
      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 

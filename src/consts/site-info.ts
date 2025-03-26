@@ -1,4 +1,4 @@
 export const siteInfo = {
-    title: 'Pokemon Static',
-    description: 'My pokemon App site'
+    title: 'Jennifer & Alejandro',
+    description: 'Comparte la ilusión de nuestra boda.'
 }
