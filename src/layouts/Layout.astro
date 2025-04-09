@@ -43,7 +43,7 @@ const {title = siteInfo.title, description= siteInfo.description, image} = Astro
 </head>
 <body>
     
-    <NavBar/>
+    <NavBar client:load/>
 
     <main>
         <slot/>

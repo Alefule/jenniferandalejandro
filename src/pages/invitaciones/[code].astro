@@ -1,0 +1,42 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import InvitationCard from "@/components/InvitationCard.astro";
+
+import type { GetStaticPaths } from "astro";
+
+import { turso } from '@/turso'
+
+
+
+export const getStaticPaths = (async () => {
+  const result = await turso.execute(`SELECT id, code FROM invitations`);
+
+  return result.rows.map((row) => ({
+    params: { code: String(row.code) },
+    props: {
+      invitationId: Number(row.id),
+      code: String(row.code),
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+
+const { invitationId, code } = Astro.props;
+
+const guestsResult = await turso.execute(`
+  SELECT id, name, status
+  FROM guests 
+  WHERE invitation_id = '${invitationId}'`);
+
+const guests = guestsResult.rows;
+
+
+---
+
+
+
+<Layout title="Jennifer & Alejandro | Invitaciones">
+    
+    <InvitationCard client:load invitationId={invitationId} code={code} guests={guests} />
+
+</Layout>
