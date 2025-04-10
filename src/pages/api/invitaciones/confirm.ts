@@ -62,3 +62,12 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response('Error interno del servidor', { status: 500 });
   }
 }
+
+export async function GET() {
+  try {
+    const result = await turso.execute("SELECT * FROM guests");
+    return new Response(JSON.stringify(result), { status: 200 });
+  } catch (err) {
+    return new Response(JSON.stringify({ error: String(err) }), { status: 500 });
+  }
+}
