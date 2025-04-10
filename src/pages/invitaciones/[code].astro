@@ -5,17 +5,25 @@ import { turso } from '@/turso'
 
 const { code } = Astro.params;
 
+if (!code) {
+  return new Response("Código de invitación no especificado", { status: 400 });
+}
+
+// Buscar invitación por código
 const invitationResult = await turso.execute(`
-  SELECT id FROM invitations WHERE code = '${code}' LIMIT 1`);
+  SELECT id FROM invitations WHERE code = ? LIMIT 1
+`, [code]);
 
 if (invitationResult.rows.length === 0) {
-  throw new Error("Invitación no encontrada");
+  return new Response("Invitación no encontrada", { status: 404 });
 }
 
 const invitationId = Number(invitationResult.rows[0].id);
 
+// Buscar los invitados asociados
 const guestsResult = await turso.execute(`
-  SELECT id, name, status FROM guests WHERE invitation_id = '${invitationId}'`);
+  SELECT id, name, status FROM guests WHERE invitation_id = ?
+`, [invitationId]);
 
 const guests = guestsResult.rows;
 ---
@@ -23,3 +31,4 @@ const guests = guestsResult.rows;
 <Layout title="Jennifer & Alejandro | Invitaciones">
   <InvitationCard invitationId={invitationId} code={code} guests={guests} />
 </Layout>
+
