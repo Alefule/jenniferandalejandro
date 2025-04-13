@@ -3,7 +3,7 @@ const image = 'https://jenniferandalejandro.us/_astro/proposal_acepted.BFWDeVbu.
 const confirmedMessage = "¡Estamos muy felices de saber que asistirás a nuestro evento! Tu presencia hará que este momento sea aún más especial. Si tienes algún comentario o solicitud, no dudes en hacérnoslo saber."
 const declinedMessage = "Lamentamos que no puedas asistir. Entendemos que a veces surgen compromisos, y esperamos poder compartir un momento contigo en el futuro. Si en algún momento cambia tu disponibilidad, ¡serás bienvenido!"
 const callToAction = `<p>Haz clic para agregar la fecha a tu calendario:</p>
-                      <a href="${'https://calendar.app.google/Cet2XRWgvWHPbGMx5'}" class="button">Agregar al Calendario</a>`;
+                      <a href="${'https://calendar.app.google/Cet2XRWgvWHPbGMx5'}" class="button"> Agregar al Calendario </a>`;
 
 export const getEmailBody = (from: string, confirmed: boolean) => {
     return `
@@ -14,62 +14,51 @@ export const getEmailBody = (from: string, confirmed: boolean) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Confirmación de Invitación</title>
-        <style>
-            body {
+        body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
-            color: #333;
+            color: #777; /* Color gris claro para todo el texto */
             margin: 0;
             padding: 0;
-            }
-            .container {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            }
-            h1 {
-            color: #364153;
-            font-size: 24px;
-            }
-            p {
-            font-size: 16px;
-            line-height: 1.5;
-            }
-            .image-container {
+        }
+        h1 {
+            color: #777; /* Mismo gris que el texto */
+            font-size: 18px; /* Tamaño ligeramente mayor para el título */
             text-align: center;
-            margin: 20px 0;
-            }
-            .button {
+        }
+        p {
+            font-size: 12px; /* Tamaño pequeño como el footer */
+            line-height: 1.5;
+            text-align: center;
+        }
+        .button {
             display: inline-block;
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 12px; /* Tamaño pequeño para el botón */
             color: #fff;
             background-color: #d4b78f;
             text-decoration: none;
             border-radius: 4px;
             text-align: center;
-            }
-            .rejected {
-            background-color: #f44336;
-            }
-            .footer {
+        }
+        .button-container {
+            text-align: center; /* Centra el botón */
+            margin: 20px 0;
+        }
+        .footer {
             text-align: center;
             font-size: 12px;
-            color: #777;
+            color: #777; /* Mantiene el mismo gris */
             margin-top: 30px;
-            }
-        </style>
+        }
+    </style>
         </head>
         <body>
 
         <div class="container">
             <!-- Imagen tipo Ghibli de la propuesta -->
             <div class="image-container">
-                <img src="https://jenniferandalejandro.us/${image}" alt="Propuesta de Matrimonio" style="max-width: 100%; border-radius: 8px;">
+                <img src="${image}" alt="Jennifer & Alejandro" style="max-width: 100%; border-radius: 8px;">
             </div>
 
             <!-- Título y Mensaje -->
