@@ -4,12 +4,6 @@
 
 <script>
 
-    function toggleDarkMode() {
-        const html = document.documentElement;
-        html?.classList.toggle('dark');
-        localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-    }
-
     const toggleMenu = () => {
         const menu = document.querySelector('#mobile-menu');
         menu?.classList.toggle('hidden');
