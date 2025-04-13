@@ -76,7 +76,7 @@ export const getEmailBody = (from: string, confirmed: boolean) => {
         <div class="container">
             <!-- Imagen tipo Ghibli de la propuesta -->
             <div class="image-container">
-                <img src={image} alt="Jennifer & Alejandro" style="max-width: 100%; border-radius: 8px;">
+                <img src=${image} alt="Jennifer & Alejandro" style="max-width: 100%; border-radius: 8px;">
             </div>
 
             <!-- Título y Mensaje -->
