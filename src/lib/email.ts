@@ -1,4 +1,4 @@
-const image = 'https://postimg.cc/Sjg9G0y4';
+const image = 'https://jenniferandalejandro.us/images/proposal_acepted.jpg';
 
 const confirmedMessage = "¡Estamos muy felices de saber que asistirás a nuestro evento! Tu presencia hará que este momento sea aún más especial. Si tienes algún comentario o solicitud, no dudes en hacérnoslo saber."
 const declinedMessage = "Lamentamos que no puedas asistir. Entendemos que a veces surgen compromisos, y esperamos poder compartir un momento contigo en el futuro. Si en algún momento cambia tu disponibilidad, ¡serás bienvenido!"
