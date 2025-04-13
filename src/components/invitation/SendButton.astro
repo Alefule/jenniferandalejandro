@@ -1,10 +1,24 @@
 ---
-const {sended} = Astro.props;
+const {sended, isGroup} = Astro.props;
 ---
 
 {sended ? (
     <h3 class="text-center">¡Esta invitacion ya ha sido envida!</h3>
 ) : (
-<button type="submit" class="w-full bg-[#d4b78f] hover:bg-[#c4a77f] text-white font-medium py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-[#d4b78f]">
-    Confirmar asistencia
-</button>)}
+    <>
+        <button type="button" name="response" value="confirm" class="confirm-js w-full bg-[#d4b78f] hover:bg-[#c4a77f] text-white font-medium py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-[#d4b78f] mb-2">
+            Confirmar asistencia
+        </button>
+
+        { isGroup && (
+            <button 
+                type="button" 
+                name="response" 
+                value="decline" 
+                class="decline-js w-full border border-[#c4a77f] text-[#c4a77f] hover:bg-[#f5f0eb] font-medium py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-[#d4b78f]"
+            >
+                No podremos asistir
+            </button>
+            )}
+    </>
+)}

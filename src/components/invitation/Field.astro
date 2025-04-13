@@ -14,7 +14,7 @@ const { text, type, hidden, value, name, placeholder, isTextArea} = Astro.props;
                 <textarea name="{name}" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#d4b78f]" placeholder={placeholder} rows="3"></textarea>      
             ) : 
             (
-                <input name={name} type={type} class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#d4b78f]" placeholder={placeholder}>
+                <input name={name} type={type} class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#d4b78f]" placeholder={placeholder} required>
             )}
         </div>
     )

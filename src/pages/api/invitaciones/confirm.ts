@@ -7,6 +7,7 @@ export const prerender = false;
 export const POST: APIRoute = async ({ request }) => {
   const data = await request.formData();
 
+  const response = data.get('response')?.toString() || 'decline';
   const email = data.get('email')?.toString() ?? '';
   const comment = data.get('comment')?.toString() ?? '';
   const invitationId = data.get('invitationId')?.toString();
@@ -18,7 +19,7 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response('Invitación no válida', { status: 400 });
   }
 
-  return doPost(email, comment, invitationId, guestsConfirmedRaw, attendance);
+  return doPost(email, comment, invitationId, guestsConfirmedRaw, attendance, response);
   
 }
 

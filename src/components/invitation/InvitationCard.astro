@@ -12,12 +12,11 @@ const invitationTitle = code?.split('-').map((word: string) => word.charAt(0).to
 
 
 <script>
-    const form = document.querySelector('form');
-    form?.addEventListener('submit', async (event) => {
-        event.preventDefault(); 
 
+    const onSubmit = async (form:any, confirm:boolean) => {
         const formData = new FormData(form);
-
+        formData.append('response', confirm ? 'confirm' : 'decline');
+        
         try {
             const response = await fetch('/api/invitaciones/confirm', {
                 method: 'POST',
@@ -36,7 +35,17 @@ const invitationTitle = code?.split('-').map((word: string) => word.charAt(0).to
             console.error('Error al enviar la confirmación:', error);
             alert('❌ Error de red o del servidor');
         }
-    });
+
+    }
+
+    const form = document.querySelector('form'),
+        confirmButton = document.querySelector('.confirm-js'),
+        declineButton = document.querySelector('.decline-js');
+
+
+    confirmButton?.addEventListener('click', () =>  onSubmit(form, true))
+    declineButton?.addEventListener('click', () => onSubmit(form, false))
+    
 </script>
 
 
@@ -62,7 +71,7 @@ const invitationTitle = code?.split('-').map((word: string) => word.charAt(0).to
                     ¡Hola {invitationTitle}!
                 </h1>
 
-                <div class="mb-8 text-2xl text-gray-700 font-medium text-center">Gracias por formar parte de nuestra vida. Nos encantaría compartir un dia importante para nosotros...</div>
+                <div class="mb-8 text-2xl text-gray-700 font-medium text-center">Dicen que el amor es cosa de locos… así que aquí estamos, enamorados y con muchas ganas de celebrarlo contigo.</div>
 
                 <form class="space-y-6">
 
@@ -74,8 +83,12 @@ const invitationTitle = code?.split('-').map((word: string) => word.charAt(0).to
 
                     <Field name="comment" type="email" isTextArea={true} text="Comentarios, dudas o sugerencias" placeholder="Vegetariano, vegano, alergias, etc."/>
 
+                    <label class="block text-sm font-medium text-gray-700 mb-4">
+                        <input type="checkbox" name="termsAccepted" required>
+                        He leído y acepto los <a class="text-[#d4b78f] hover:text-[#c4a77f] cursor-pointer" href="/terminos" target="_blank">términos y condiciones</a>.
+                      </label>
                     
-                    <SendButton sended={sended}/>
+                    <SendButton sended={sended} isGroup={guests.length > 1}/>
                     
                 </form>
             </div>    

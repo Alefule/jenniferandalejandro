@@ -2,7 +2,7 @@ import { turso } from '@/lib/turso';
 import { sendConfirmationMessage } from '@/lib/sendConfirmationMessage';
 import { sendEmail } from '@/lib/resend';
 
-export const doPost = async(email: string, comment: string, invitationId: string, guestsConfirmedRaw: any[], attendance: string) => {
+export const doPost = async(email: string, comment: string, invitationId: string, guestsConfirmedRaw: any[], attendance: string, response: string) => {
     try {
         await turso.execute(
           `UPDATE invitations SET email = ?, comment = ?, sended = ? WHERE id = ?`,
@@ -14,7 +14,7 @@ export const doPost = async(email: string, comment: string, invitationId: string
           [invitationId]
         );
     
-        if (guestsConfirmedRaw.length > 0) {
+        if (guestsConfirmedRaw.length > 0 && response == 'confirm' ) {
           const guestIds = guestsConfirmedRaw.map((id: { toString: () => string; }) => parseInt(id.toString()));
           for (const guestId of guestIds) {
             await turso.execute(
@@ -37,7 +37,7 @@ export const doPost = async(email: string, comment: string, invitationId: string
         }
     
         sendConfirmationMessage(invitationId)
-        sendEmail('info@jenniferandalejandro.us', email, 'Confirmación de asistencia', '<h1>Gracias por confirmar.</h1>');
+        sendEmail('info@jenniferandalejandro.us', email, 'Confirmación de asistencia', guestsConfirmedRaw.length > 0 || attendance != null);
     
         return new Response('Confirmación guardada con éxito', { status: 200 });
     } catch (error) {

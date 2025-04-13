@@ -32,7 +32,7 @@ export const getEmailBody = (from: string, confirmed: boolean) => {
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             }
             h1 {
-            color: #4CAF50;
+            color: #364153;
             font-size: 24px;
             }
             p {
@@ -48,9 +48,10 @@ export const getEmailBody = (from: string, confirmed: boolean) => {
             padding: 10px 20px;
             font-size: 16px;
             color: #fff;
-            background-color: #4CAF50;
+            background-color: #d4b78f;
             text-decoration: none;
             border-radius: 4px;
+            text-align: center;
             }
             .rejected {
             background-color: #f44336;
