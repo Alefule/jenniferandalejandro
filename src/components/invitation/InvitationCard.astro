@@ -1,0 +1,84 @@
+---
+import cardImage from '@/assets/jenniandale.webp';
+import Confirm from '@/components/invitation/Confirm.astro';
+import SendButton from '@/components/invitation/SendButton.astro';
+import Field from '@/components/invitation/Field.astro';
+
+const {code, guests, invitationId, sended} = Astro.props
+
+const invitationTitle = code?.split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') || 'Familia Pérez';
+
+---
+
+
+<script>
+    const form = document.querySelector('form');
+    form?.addEventListener('submit', async (event) => {
+        event.preventDefault(); 
+
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch('/api/invitaciones/confirm', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                const text = await response.text();
+                alert('🎉 Confirmación enviada con éxito');
+                location.reload();
+            } else {
+                console.error('Error en la respuesta', response.status);
+                alert('❌ Hubo un error al enviar tu confirmación');
+            }
+        } catch (error) {
+            console.error('Error al enviar la confirmación:', error);
+            alert('❌ Error de red o del servidor');
+        }
+    });
+</script>
+
+
+<div class="mx-4">
+    <div class="m-auto mt-10 mb-10 max-w-6xl bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div class="flex flex-col md:flex-row">
+            <div class="relative overflow-hidden h-[300px] md:h-auto md:w-1/2 lg:h-auto xl:h-auto">
+                <div class="absolute inset-0 bg-gradient-to-b from-white/30 to-white/30 z-10"></div>
+                <img
+                  src={cardImage.src}
+                  alt="Jennifer & Alejandro"
+                  class="absolute inset-0 w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 z-20 flex flex-col items-center justify-center text-white">
+                  <p class="text-lg md:text-xl mb-2 font-light bg-[#13151a59] golden">¡Nos casamos!</p>
+                  <h1 class="text-4xl md:text-6xl font-serif mb-6 bg-[#13151a59] golden text-center">Jennifer & Alejandro</h1>
+                  <p class="text-lg md:text-xl bg-[#13151a59] golden">06 de Septiembre de 2025</p>
+                </div>
+              </div>
+            <div class="md:w-1/2 p-6 md:p-10">
+
+                <h1 class="text-4xl md:text-6xl text-gray-700 font-serif mb-6 text-center">
+                    ¡Hola {invitationTitle}!
+                </h1>
+
+                <div class="mb-8 text-2xl text-gray-700 font-medium text-center">Gracias por formar parte de nuestra vida. Nos encantaría compartir un dia importante para nosotros...</div>
+
+                <form class="space-y-6">
+
+                    <Field hidden={true} name="invitationId" value={invitationId}/>
+        
+                    <Field name="email" type="email" text="Email para futuras actualizaciones" placeholder="tu@email.com"/>
+
+                    <Confirm guests={guests}/>
+
+                    <Field name="comment" type="email" isTextArea={true} text="Comentarios, dudas o sugerencias" placeholder="Vegetariano, vegano, alergias, etc."/>
+
+                    
+                    <SendButton sended={sended}/>
+                    
+                </form>
+            </div>    
+        </div>
+    </div>
+</div>
