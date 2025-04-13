@@ -1,4 +1,4 @@
-const image = 'https://jenniferandalejandro.us/_astro/proposal_acepted.BFWDeVbu.webp';
+const image = 'https://mail.google.com/mail/u/0?ui=2&ik=612b29d4d9&attid=0.1&permmsgid=msg-a:r-4981161374972724537&th=19630d0e659ce189&view=fimg&fur=ip&permmsgid=msg-a:r-4981161374972724537&sz=s0-l75-ft&attbid=ANGjdJ9G4NA9K82Ojw7Jgd0ylCJ-hZ14o0P0bl23WjK1QOtA5avoDRyZtNMc1k6WsYnBN1ln58KKoyeWlSB4MVKssIuFmu0pTWmqer38xgxUyJw18e0dc69NpjJ2MM0&disp=emb&realattid=ii_m9g3c41u0&zw';
 
 const confirmedMessage = "¡Estamos muy felices de saber que asistirás a nuestro evento! Tu presencia hará que este momento sea aún más especial. Si tienes algún comentario o solicitud, no dudes en hacérnoslo saber."
 const declinedMessage = "Lamentamos que no puedas asistir. Entendemos que a veces surgen compromisos, y esperamos poder compartir un momento contigo en el futuro. Si en algún momento cambia tu disponibilidad, ¡serás bienvenido!"
