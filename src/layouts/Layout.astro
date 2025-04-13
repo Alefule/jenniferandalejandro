@@ -31,11 +31,11 @@ const {title = siteInfo.title, description= siteInfo.description, image} = Astro
     <!-- SEO -->
      <meta name="description" content={description}/>
 
-     <!-- OG Metatags -->
-     <meta name="og:title" content={title}/>
-     <meta name="og:description" content={description}/>
-     <meta name="og:image" content={proposal.src}/>
-     <meta name="data" content={proposalAcepted.src}/>
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image ?? proposal.src} />
+    <meta property="og:url" content={`https://jenniferandalejandro.us${Astro.url.pathname}`} />
+    <meta property="og:type" content="website" />
 
      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 

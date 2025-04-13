@@ -1,4 +1,4 @@
-import proposalAcepted from '@/assets/proposal_acepted.webp';
+const image = 'https://jenniferandalejandro.us/_astro/proposal_acepted.BFWDeVbu.webp';
 
 const confirmedMessage = "¡Estamos muy felices de saber que asistirás a nuestro evento! Tu presencia hará que este momento sea aún más especial. Si tienes algún comentario o solicitud, no dudes en hacérnoslo saber."
 const declinedMessage = "Lamentamos que no puedas asistir. Entendemos que a veces surgen compromisos, y esperamos poder compartir un momento contigo en el futuro. Si en algún momento cambia tu disponibilidad, ¡serás bienvenido!"
@@ -69,7 +69,7 @@ export const getEmailBody = (from: string, confirmed: boolean) => {
         <div class="container">
             <!-- Imagen tipo Ghibli de la propuesta -->
             <div class="image-container">
-                <img src="https://jenniferandalejandro.us/${proposalAcepted}" alt="Propuesta de Matrimonio" style="max-width: 100%; border-radius: 8px;">
+                <img src="https://jenniferandalejandro.us/${image}" alt="Propuesta de Matrimonio" style="max-width: 100%; border-radius: 8px;">
             </div>
 
             <!-- Título y Mensaje -->
