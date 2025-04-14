@@ -38,7 +38,6 @@ const invitationTitle = code?.split('-').map((word: string) => word.charAt(0).to
 
             if (response.ok) {
                 const text = await response.text();
-                alert('🎉 Confirmación enviada con éxito');
                 location.reload();
             } else {
                 console.error('Error en la respuesta', response.status);
