@@ -36,8 +36,8 @@ export const doPost = async(email: string, comment: string, invitationId: string
           }
         }
     
-        sendConfirmationMessage(invitationId)
-        sendEmail('info@jenniferandalejandro.us', email, 'Confirmación de asistencia', response == 'confirm' || attendance === 'yes');
+        await sendConfirmationMessage(invitationId)
+        await sendEmail('info@jenniferandalejandro.us', email, 'Confirmación de asistencia', response == 'confirm' || attendance === 'yes');
     
         return new Response('Confirmación guardada con éxito', { status: 200 });
     } catch (error) {

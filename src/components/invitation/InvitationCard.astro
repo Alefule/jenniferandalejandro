@@ -16,6 +16,19 @@ const invitationTitle = code?.split('-').map((word: string) => word.charAt(0).to
     const onSubmit = async (form:any, confirm:boolean) => {
         const formData = new FormData(form);
         formData.append('response', confirm ? 'confirm' : 'decline');
+
+        const button = (confirm ? confirmButton : declineButton) as HTMLButtonElement;
+        const originalText = button?.innerHTML || '';
+
+        if (button) {
+            button.disabled = true;
+            button.innerHTML = `
+                <span class="loader-dots">
+                    <span></span><span></span><span></span>
+                </span>
+                `;
+        }
+
         
         try {
             const response = await fetch('/api/invitaciones/confirm', {
@@ -34,7 +47,14 @@ const invitationTitle = code?.split('-').map((word: string) => word.charAt(0).to
         } catch (error) {
             console.error('Error al enviar la confirmación:', error);
             alert('❌ Error de red o del servidor');
-        }
+        }finally {
+            if (button) {
+                button.disabled = false;
+                button.innerHTML = originalText;
+            }
+        
+        
+    }
 
     }
 
