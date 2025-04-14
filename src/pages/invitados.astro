@@ -1,0 +1,65 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { turso } from '@/lib/turso';
+
+const result = await turso.execute(`SELECT guests.name FROM guests JOIN invitations ON guests.invitation_id = invitations.id WHERE guests.status = 'confirmed' ORDER BY guests.name ASC`);
+const guests = result.rows.map(row => row.name);
+---
+
+<Layout title="Jennifer & Alejandro | Invitados">
+    <main class="max-w-2xl mt-4 mx-auto bg-white p-6  ">
+        <h1 class="text-4xl font-serif mb-4 text-center">¡Invitados confirmados!</h1>
+  
+        <input
+          id="search"
+          type="text"
+          placeholder="Buscar invitado..."
+          class="w-full border border-gray-300 rounded-md px-4 py-2 mb-4 shadow-sm focus:ring-2 focus:ring-[#c4a77f] focus:outline-none"
+        />
+  
+        <ul id="guest-list" data-guest={JSON.stringify(guests)} class="space-y-2">
+            
+        </ul>
+      </main>
+  
+      <script type="module">
+        
+        
+        const list = document.getElementById('guest-list');
+        const guests = JSON.parse(list.dataset.guest);
+        const search = document.getElementById('search');
+
+        console.log('guest', guests)
+  
+        const render = (items) => {
+          list.innerHTML = '';
+          if (items.length === 0) {
+            list.innerHTML = '<li class="text-gray-500">No se encontraron invitados.</li>';
+            return;
+          }
+  
+          items.forEach(guest => {
+            const li = document.createElement('li');
+            li.textContent = guest;
+            li.className = "px-4 py-2 bg-gray-50 border border-gray-200 rounded-md";
+            list.appendChild(li);
+          });
+        };
+  
+        render(guests); // render inicial
+  
+        search.addEventListener('input', () => {
+          const term = search.value.trim().toLowerCase();
+          if (term.length < 1) {
+            render(guests);
+            return;
+          }
+  
+          const filtered = guests.filter(g =>
+            g.toLowerCase().includes(term)
+          );
+          render(filtered);
+        });
+      </script>
+</Layout>
+
