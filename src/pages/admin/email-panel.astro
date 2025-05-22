@@ -1,0 +1,10 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import EmailPanelComponent from '@/components/emailsender/EmailPanel.jsx';
+---
+
+<Layout title="Admin Panel">
+  <main>
+    <EmailPanelComponent client:only="react" />
+  </main>
+</Layout>
