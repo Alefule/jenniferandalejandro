@@ -1,0 +1,61 @@
+---
+import { Castle, PartyPopper, MapPin, Clock } from 'lucide-astro'
+---
+
+<section class="bg-gradient-to-br from-[rgb(241,223,200)] to-[rgb(241,223,200)] p-12 mt-10">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-3xl font-serif text-gray-800 text-center mb-12">Información del Evento</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <!-- Ceremonia -->
+      <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-[rgb(212,183,143)]/30 hover:shadow-xl transition-all duration-300">
+        <div class="flex flex-col items-center text-center">
+          <div class="bg-gradient-to-br from-[rgb(212,183,143)] to-[rgb(180,150,110)] p-4 rounded-full mb-6 shadow-lg">
+            <Castle class="w-12 h-12 text-white" />
+          </div>
+          <h3 class="text-2xl font-serif text-gray-800 mb-4">Ceremonia</h3>
+          
+          <div class="space-y-3 text-gray-600">
+            <div class="flex items-center justify-center gap-2">
+              <MapPin class="w-4 h-4 text-[rgb(180,150,110)]" />
+              <span>Las Rosas, Gáldar</span>
+            </div>
+            <div class="flex items-center justify-center gap-2">
+              <Clock class="w-4 h-4 text-[rgb(180,150,110)]" />
+              <span>12:00h</span>
+            </div>
+          </div>
+          
+          <p class="text-sm text-gray-500 mt-4 italic">
+            Por favor llega con tiempo ❤️
+          </p>
+        </div>
+      </div>
+
+      <!-- Celebración -->
+      <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-[rgb(212,183,143)]/30 hover:shadow-xl transition-all duration-300">
+        <div class="flex flex-col items-center text-center">
+          <div class="bg-gradient-to-br from-[rgb(212,183,143)] to-[rgb(180,150,110)] p-4 rounded-full mb-6 shadow-lg">
+            <PartyPopper class="w-12 h-12 text-white" />
+          </div>
+          <h3 class="text-2xl font-serif text-gray-800 mb-4">Celebración</h3>
+          
+          <div class="space-y-3 text-gray-600">
+            <div class="flex items-center justify-center gap-2">
+              <MapPin class="w-4 h-4 text-[rgb(180,150,110)]" />
+              <span>Finca Las Rosas</span>
+            </div>
+            <div class="flex items-center justify-center gap-2">
+              <PartyPopper class="w-4 h-4 text-[rgb(180,150,110)]" />
+              <span>Justo después de la ceremonia</span>
+            </div>
+          </div>
+          
+          <p class="text-sm text-gray-500 mt-4 italic">
+            Comida, música y diversión aseguradas 🥂
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
