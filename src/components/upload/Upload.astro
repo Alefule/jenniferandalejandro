@@ -1,0 +1,69 @@
+---
+---
+
+<script>
+    const button = document.querySelector('.upload-button-JS')
+    button?.addEventListener('click', () => window.open(import.meta.env.PUBLIC_UPLOAD_URL, '_blank'))
+</script>
+
+<div class="mx-4 min-h-screen py-2">
+    <div class="m-auto max-w-6xl">
+    <div class="flex flex-col md:flex-row">
+
+        <div class="p-6 md:p-10">
+        <h1 class="text-4xl md:text-6xl text-gray-700 font-serif mb-6 text-center">
+            ¡Queridos invitados!
+        </h1>
+
+        <div class="mb-8 text-2xl text-gray-700 font-medium text-center">
+            Vuestras fotografías son el regalo más preciado que podemos recibir. Cada sonrisa capturada será parte de nuestros recuerdos eternos.
+        </div>
+
+
+        <div class="text-center mb-6">
+            <button 
+            class="upload-button-JS group relative inline-flex items-center justify-center px-8 py-4 bg-[#d4b78f] text-white font-medium text-lg rounded-xl shadow-lg hover:bg-[#c4a77f] transform hover:scale-105 transition-all duration-300 ease-out w-full md:w-auto"
+            >
+                Sube tus recuerdos aqui!
+            </button>
+            <p class="text-sm text-gray-500 mt-3">
+            * El enlace te llevará a nuestro álbum compartido
+            </p>
+        </div>
+
+        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+            <h3 class="text-lg font-medium text-gray-700 mb-4 text-center">
+            ¿Cómo subir tus fotos?
+            </h3>
+            <div class="space-y-3">
+            <div class="flex items-center">
+                <div class="w-8 h-8 bg-[#d4b78f] text-white rounded-full flex items-center justify-center mr-3 text-sm font-medium">
+                1
+                </div>
+                <p class="text-sm text-gray-600">Haz clic en el botón "Subir Fotos"</p>
+            </div>
+            <div class="flex items-center">
+                <div class="w-8 h-8 bg-[#d4b78f] text-white rounded-full flex items-center justify-center mr-3 text-sm font-medium">
+                2
+                </div>
+                <p class="text-sm text-gray-600">Selecciona las fotos que quieras compartir</p>
+            </div>
+            <div class="flex items-center">
+                <div class="w-8 h-8 bg-[#d4b78f] text-white rounded-full flex items-center justify-center mr-3 text-sm font-medium">
+                3
+                </div>
+                <p class="text-sm text-gray-600">¡Comparte la magia de nuestro día especial!</p>
+            </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-8">
+            <p class="text-gray-500 font-light italic">
+            Con todo nuestro amor y gratitud ♡
+            </p>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+
