@@ -1,0 +1,177 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+
+---
+
+<style>
+    .container{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+    #contador {
+      font-weight: bold;
+      margin-bottom: 15px;
+      display: block;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      max-width: 400px;
+    }
+    li {
+      margin: 6px 0;
+      padding: 8px 12px;
+      background: #fff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: background 0.2s;
+      min-width: 300px
+    }
+    li:hover {
+      background: #f0f0f0;
+    }
+    input[type="checkbox"] {
+      margin-right: 12px;
+      transform: scale(1.2);
+    }
+    label {
+      flex: 1;
+      cursor: pointer;
+      transition: color 0.2s, text-decoration 0.2s;
+    }
+    input[type="checkbox"]:checked + label {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+
+
+<Layout title="Jennifer & Alejandro | Home">
+    <div class="container">
+        <h2>Lista de personas</h2>
+        <span id="contador"></span>
+        <ul id="lista">
+            <li><input type="checkbox" id="adan"><label for="adan">Adan</label></li>
+            <li><input type="checkbox" id="agueda"><label for="agueda">Agueda</label></li>
+            <li><input type="checkbox" id="agustin"><label for="agustin">Agustín</label></li>
+            <li><input type="checkbox" id="alberto"><label for="alberto">Alberto</label></li>
+            <li><input type="checkbox" id="alejandro"><label for="alejandro">Alejandro</label></li>
+            <li><input type="checkbox" id="aranza"><label for="aranza">Aranza</label></li>
+            <li><input type="checkbox" id="belinda"><label for="belinda">Belinda</label></li>
+            <li><input type="checkbox" id="benedicto"><label for="benedicto">Benedicto</label></li>
+            <li><input type="checkbox" id="briana"><label for="briana">Briana</label></li>
+            <li><input type="checkbox" id="carlos"><label for="carlos">Carlos</label></li>
+            <li><input type="checkbox" id="carmen"><label for="carmen">Carmen</label></li>
+            <li><input type="checkbox" id="claudia"><label for="claudia">Claudia</label></li>
+            <li><input type="checkbox" id="cristina1"><label for="cristina1">Cristina</label></li>
+            <li><input type="checkbox" id="cristina2"><label for="cristina2">Cristina</label></li>
+            <li><input type="checkbox" id="cynthia"><label for="cynthia">Cynthia</label></li>
+            <li><input type="checkbox" id="daniel"><label for="daniel">Daniel</label></li>
+            <li><input type="checkbox" id="daniela"><label for="daniela">Daniela</label></li>
+            <li><input type="checkbox" id="denis"><label for="denis">Denis</label></li>
+            <li><input type="checkbox" id="diego"><label for="diego">Diego</label></li>
+            <li><input type="checkbox" id="elena"><label for="elena">Elena</label></li>
+            <li><input type="checkbox" id="eliecer"><label for="eliecer">Eliécer</label></li>
+            <li><input type="checkbox" id="eric"><label for="eric">Eric</label></li>
+            <li><input type="checkbox" id="esmeralda"><label for="esmeralda">Esmeralda</label></li>
+            <li><input type="checkbox" id="eugenio"><label for="eugenio">Eugenio</label></li>
+            <li><input type="checkbox" id="fabian1"><label for="fabian1">Fabian</label></li>
+            <li><input type="checkbox" id="fabian2"><label for="fabian2">Fabian</label></li>
+            <li><input type="checkbox" id="fabiola"><label for="fabiola">Fabiola</label></li>
+            <li><input type="checkbox" id="francesca"><label for="francesca">Francesca</label></li>
+            <li><input type="checkbox" id="francisco"><label for="francisco">Francisco</label></li>
+            <li><input type="checkbox" id="isaac"><label for="isaac">Isaac</label></li>
+            <li><input type="checkbox" id="ismael"><label for="ismael">Ismael</label></li>
+            <li><input type="checkbox" id="ivan-fuentes"><label for="ivan-fuentes">Ivan Fuentes</label></li>
+            <li><input type="checkbox" id="ivan-trujillo"><label for="ivan-trujillo">Ivan Trujillo</label></li>
+            <li><input type="checkbox" id="ivan"><label for="ivan">Iván</label></li>
+            <li><input type="checkbox" id="jacobo"><label for="jacobo">Jacobo</label></li>
+            <li><input type="checkbox" id="javier"><label for="javier">Javier</label></li>
+            <li><input type="checkbox" id="joan"><label for="joan">Joan</label></li>
+            <li><input type="checkbox" id="johana"><label for="johana">Johana</label></li>
+            <li><input type="checkbox" id="joni"><label for="joni">Joni</label></li>
+            <li><input type="checkbox" id="josue"><label for="josue">Josue</label></li>
+            <li><input type="checkbox" id="judith1"><label for="judith1">Judith</label></li>
+            <li><input type="checkbox" id="judith2"><label for="judith2">Judith</label></li>
+            <li><input type="checkbox" id="julio"><label for="julio">Julio</label></li>
+            <li><input type="checkbox" id="laura"><label for="laura">Laura</label></li>
+            <li><input type="checkbox" id="leia"><label for="leia">Leia</label></li>
+            <li><input type="checkbox" id="lourdes"><label for="lourdes">Lourdes</label></li>
+            <li><input type="checkbox" id="lucia"><label for="lucia">Lucia</label></li>
+            <li><input type="checkbox" id="ludmila"><label for="ludmila">Ludmila</label></li>
+            <li><input type="checkbox" id="maite"><label for="maite">Maite</label></li>
+            <li><input type="checkbox" id="mari"><label for="mari">Mari</label></li>
+            <li><input type="checkbox" id="marta"><label for="marta">Marta</label></li>
+            <li><input type="checkbox" id="miguel"><label for="miguel">Miguel</label></li>
+            <li><input type="checkbox" id="miranda"><label for="miranda">Miranda</label></li>
+            <li><input type="checkbox" id="miriam"><label for="miriam">Miriam</label></li>
+            <li><input type="checkbox" id="moises"><label for="moises">Moises</label></li>
+            <li><input type="checkbox" id="nereida"><label for="nereida">Nereida</label></li>
+            <li><input type="checkbox" id="noelia1"><label for="noelia1">Noelia</label></li>
+            <li><input type="checkbox" id="noelia2"><label for="noelia2">Noelia</label></li>
+            <li><input type="checkbox" id="nestor"><label for="nestor">Néstor</label></li>
+            <li><input type="checkbox" id="olga"><label for="olga">Olga</label></li>
+            <li><input type="checkbox" id="paola"><label for="paola">Paola</label></li>
+            <li><input type="checkbox" id="saray"><label for="saray">Saray</label></li>
+            <li><input type="checkbox" id="tanausu"><label for="tanausu">Tanausu</label></li>
+            <li><input type="checkbox" id="teresa"><label for="teresa">Teresa</label></li>
+            <li><input type="checkbox" id="toni"><label for="toni">Toni</label></li>
+            <li><input type="checkbox" id="yose"><label for="yose">Yose</label></li>
+            <li><input type="checkbox" id="zebensui"><label for="zebensui">Zebensui</label></li>
+            <li><input type="checkbox" id="rita"><label for="rita">Rita</label></li>
+            <li><input type="checkbox" id="miche"><label for="miche">Miche</label></li>
+        </ul>
+    </div>
+</Layout>
+
+<script>
+    
+    const lista = document.getElementById("lista");
+    
+    function updateCounter() {
+      const total = document.querySelectorAll("#lista li").length;
+      document.getElementById("contador").textContent = 
+        `Total de personas: ${total}`;
+    }
+
+    
+
+// 🔹 Función para guardar los checks en localStorage
+    function guardarChecks() {
+        const seleccionados: string[] = [];
+        lista.querySelectorAll("input[type='checkbox']").forEach(chk => {
+            if (chk.checked) {
+            seleccionados.push(chk.id); // guardamos el id
+            }
+        });
+        localStorage.setItem("checksGuardados", JSON.stringify(seleccionados));
+    }
+
+// 🔹 Restaurar checks al cargar
+    function restaurarChecks() {
+        const guardados = JSON.parse(localStorage.getItem("checksGuardados")) || [];
+        lista.querySelectorAll("input[type='checkbox']").forEach(chk => {
+            chk.checked = guardados.includes(chk.id);
+        });
+    }
+
+    // 🔹 Escuchar cambios en todos los checkboxes
+    lista.addEventListener("change", guardarChecks);
+
+// 🔹 Cuando cargue la página, restaurar el estado
+    document.addEventListener("DOMContentLoaded", restaurarChecks);
+
+    updateCounter();
+  </script>
+
+
+  
+
