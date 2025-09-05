@@ -3,19 +3,38 @@
 ---
 
 <script>
-
-    const toggleMenu = () => {
-        const menu = document.querySelector('#mobile-menu');
-        menu?.classList.toggle('hidden');
-    }
-
-    const init = () => {
-        const buttons = document.querySelectorAll('.button-menu-js')
-        buttons && buttons.forEach((button) => button.addEventListener('click', toggleMenu))
-    }
-
-    init()
-</script>
+    const initNavbar = () => {
+      const menu = document.querySelector("#mobile-menu");
+      const menuButtons = document.querySelectorAll(".button-menu-js");
+      const darkBtn = document.getElementById("darkmode-btn");
+  
+      if (!menu || !menuButtons.length) return;
+  
+      const toggleMenu = () => menu.classList.toggle("hidden");
+      const closeMenu = () => menu.classList.add("hidden");
+  
+      menuButtons.forEach(btn => {
+        btn.onclick = (e) => {
+          e.stopPropagation();
+          toggleMenu();
+        };
+      });
+  
+      menu.onclick = (e) => {
+        if (e.target === menu) closeMenu();
+      };
+  
+      if (darkBtn) {
+        darkBtn.onclick = () => document.documentElement.classList.toggle("dark");
+      }
+    };
+  
+    // 1. Cargar en la primera carga
+    document.addEventListener("DOMContentLoaded", initNavbar);
+  
+    // 2. Volver a cargar al cambiar de página con Astro View Transitions
+    document.addEventListener("astro:after-swap", initNavbar);
+  </script>
 
 
 <nav class="p-4 shadow-md bg-white dark:bg-gray-800">
@@ -32,20 +51,15 @@
         <div class="hidden lg:flex space-x-4">
             <a href="/" class="hover:text-gray-600 dark:hover:text-gray-300 golden">Inicio</a>
             <a href="/invitados" class="hover:text-gray-600 dark:hover:text-gray-300 golden">Invitados</a>
+            <a href="/itinerario" class="hover:text-gray-600 dark:hover:text-gray-300">Itinerario</a>
+            <a href="/menu" class="hover:text-gray-600 dark:hover:text-gray-300">Menú</a>
+            <a href="/upload" class="hover:text-gray-600 dark:hover:text-gray-300">Sube tus fotos!</a>
         </div>
-
-        <!-- Botón de modo oscuro -->
-        
-        <a href="/upload">
-            <button class="group relative inline-flex items-center justify-center px-4 py-2 bg-[#d4b78f] text-white font-medium text-lg rounded-xl shadow-lg hover:bg-[#c4a77f]">
-                Sube tus recuerdos aqui!
-             </button>
-        </a>
         
     </div>
 </nav>
 
-<div id="mobile-menu" class="lg:hidden fixed inset-0 bg-[rgba(0,0,0,0.36)] bg-opacity-50 z-50 hidden">
+<div onclick="toggleMenu()" id="mobile-menu" class="lg:hidden fixed inset-0 bg-[rgba(0,0,0,0.36)] bg-opacity-50 z-50 hidden">
     <div class="fixed inset-y-0 right-0 w-64 bg-white dark:bg-gray-800 shadow-lg p-4">
         <button  class="button-menu-js p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -56,6 +70,10 @@
         <div class="flex flex-col space-y-4">
             <a href="/" class="hover:text-gray-600 dark:hover:text-gray-300">Inicio</a>
             <a href="/invitados" class="hover:text-gray-600 dark:hover:text-gray-300">Invitados</a>
+            <a href="/itinerario" class="hover:text-gray-600 dark:hover:text-gray-300">Itinerario</a>
+            <a href="/menu" class="hover:text-gray-600 dark:hover:text-gray-300">Menú</a>
+            <a href="/upload" class="hover:text-gray-600 dark:hover:text-gray-300 golden">Sube tus fotos!</a>
+
         </div>
 
         <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 mt-4">
